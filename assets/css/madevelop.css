@@ -1,0 +1,200 @@
+/*-----------------------------------------------
+SOE Company Styles
+-----------------------------------------------*/
+body, .blur-login, .light-login {
+    background-image:    url(images/bg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center; 
+	background-attachment: fixed;
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif!important;
+}
+
+h1, h2, h3, h4, h5, h6, p, input, texarea, button, span, label, th, td, .navbar-header {
+	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif!important;
+}
+
+.error {
+	color: #D9534F;
+	font-size: 12px;
+	text-align: left;
+}
+
+.navbar {
+	background-color: #3c8dbc;
+}
+
+.navbar-inverse {
+	background-color: transparent;
+	border-color: transparent;
+	margin-top: 70px;
+}
+
+.ace-nav>li.blue>a{
+	background-color:#367fa9!important;
+}
+
+.ace-nav>li.blue>a:hover,.ace-nav>li.blue>a:focus,.ace-nav>li.open.blue>a{
+	background-color:#3c8dbc!important;
+}
+
+.modal-header  {
+	color: #fff;
+	background-color: #3c8dbc;
+}
+
+.widget-color-blue > .widget-header {
+    background: #3c8dbc;
+    border-color: #3c8dbc;
+}
+
+input:hover, input:focus, input:active, select:hover, select:focus, select:active, textarea:hover, textarea:focus, textarea:active {
+	border-color: #3c8dbc!important;
+}
+
+.center {
+	text-align: center;
+}
+
+.left {
+	text-align: left!important;
+}
+
+.right {
+	text-align: right;
+}
+
+.profile-info-name {
+	width: 170px;
+}
+
+.tab-content {
+	min-height: 300px;
+}
+
+.no-resize {
+	resize: none;
+}
+
+.login-box .toolbar {
+    padding: 9px 18px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.logo {
+    margin: -13px 0px -10px 0px;
+    max-width: 30px;
+}
+
+.no-skin .sidebar {
+    background-color: #222d32;
+    border-color: #222d32;
+}
+
+.no-skin .nav-list > li {
+    border-color: #222d32;
+}
+
+.no-skin .nav-list > li > a {
+    color: #b8c7ce;
+    background-color: #222d32;
+}
+
+.no-skin .nav-list > li.active > a {
+    font-weight: 600;
+    color: #fff;
+    background-color: #1e282c;
+}
+
+.no-skin .nav-list > li.active > a:hover {
+    font-weight: 600;
+    color: #2679b5;
+    background-color: #FFF;
+}
+
+.no-skin .sidebar.menu-min .nav-list > li > a > .menu-text {
+    background-color: #222d32;
+    -webkit-box-shadow: 2px 1px 2px 0 rgba(0,0,0,.1);
+    box-shadow: 2px 1px 2px 0 rgba(0,0,0,.1);
+    border-color: #222d32;
+	color: #fff;
+}
+
+.no-skin .sidebar-toggle {
+    background-color: #222d32;
+    border-color: #e0e0e0;
+	border-bottom: #222d32;
+}
+
+.no-skin .sidebar-toggle > .ace-icon {
+    border-color: #3c8dbc;
+    color: #fff;
+    background-color: #367fa9;
+}
+
+.no-skin .nav-list > li .submenu  {
+    color: #fff;
+    background-color: #222d32;
+    border-color: #222d32;
+}
+
+.no-skin .nav-list > li > .submenu > li > a  {
+    color: #b8c7ce;
+    background-color: #1e282c;
+    border-color: #222d32;
+}
+
+.no-skin .nav-list > li > .submenu > li.active > a  {
+    color: #fff;
+    background-color: #1e282c!important;
+}
+
+.no-skin .nav-list > li > .submenu > li.active > a:hover  {    
+    color: #2679b5;
+    background-color: #FFF!important;
+}
+
+.fa-5 {
+    font-size: 6em;
+}
+
+input[readonly] {
+    color: #696969;
+    background: #FFF !important;
+    cursor: default;
+}
+
+.footer1 {
+align: center;
+position: fixed;
+background-color: #FFFFFF;
+width: 100%;
+height:18px;
+text-align: center;
+color: #000000;
+font-family: Verdana;
+font-weight: bold;
+font-size: 13px;
+z-index:10000;
+bottom:44;
+   
+}
+
+
+body {background:#000 url(../img/unhas.png) no-repeat fixed top center;}
+.transparan2{background:rgba(0,0,0,0.4);}
+@media only screen and (min-width:992px) {
+	.footer .footer-inner .footer-content {
+		left: 42px;
+	}
+
+	.sidebar {
+		width: 220px;
+	}
+
+	.sidebar + .main-content {
+		margin-left: 220px;
+	}
+}
+/*-----------------------------------------------*/
