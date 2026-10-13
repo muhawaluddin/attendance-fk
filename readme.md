@@ -1,58 +1,180 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 Attendance FK - Sistem Absensi Biometrik & Monitoring Perkuliahan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-## About Laravel
+Sistem Informasi Absensi dan Monitoring Perkuliahan Terintegrasi berbasis Biometrik (Fingerprint & RFID) untuk lingkungan akademik perguruan tinggi (dirancang khusus untuk Fakultas Kedokteran / Institusi Pendidikan Tinggi). 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Aplikasi ini mendukung sinkronisasi multi-mesin fingerprint lintas brand, push webhook real-time, import log USB, dashboard display TV monitoring jadwal kuliah, serta rekapitulasi kehadiran dosen dan mahasiswa.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌟 Fitur Utama
 
-## Learning Laravel
+### 1. 🔄 Integrasi Mesin Fingerprint Multi-Brand
+- **Dukungan Berbagai Merk Mesin**:
+  - **Deli**: Seri E3960, E3961, E3962, 15152, 15153, E2180, dll.
+  - **ZKTeco**: K40, iFace, MB20, IN01, dll (via protokol TCP/IP ZK).
+  - **Solution**: X100-C, X105-ID, P207, dll.
+  - **Fingerspot**: Revo Series, Neo, Duo.
+  - **Hikvision**: Face & Fingerprint DS-K1T Series.
+  - Serta BioFinger, Realand, Magic, dan Generic TCP/IP Standalone.
+- **Push Webhook / Cloud ADMS**: Endpoint siap menerima kiriman log otomatis dari mesin (`/api/fingerprint/push`, `/api/fingerprint/deli`, `/iclock/cdata`).
+- **Import Log USB**: Fitur upload file log manual jika mesin offline atau tidak tersambung jaringan.
+- **Simulator Tap**: Fitur uji coba tap absensi dosen & mahasiswa langsung dari aplikasi tanpa perlu perangkat fisik.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. 📺 Public TV Monitoring Perkuliahan
+- Display publik responsif (`/monitoring`) yang dapat dipasang di layar TV koridor atau lobi kampus.
+- Menampilkan jadwal kuliah harian secara otomatis lengkap dengan status:
+  - 🟡 **Akan Datang**
+  - 🟢 **Sedang Berlangsung** *(dengan indikator waktu berjalan)*
+  - ⚪ **Selesai**
+- Dilengkapi jam digital real-time dan running text pengumuman fakultas.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 3. 📅 Manajemen Jadwal & Perkuliahan Terpadu
+- Pengelolaan jadwal berbasis Blok, Semester, dan Kelas.
+- Pembagian sesi perkuliahan: Hari, Jam Masuk, Jam Keluar, Ruangan, Departemen, dan Dosen Pengampu.
+- Pemetaan peserta mahasiswa per kelas kuliah.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### 4. 👥 Manajemen Master Data
+- **Mahasiswa**: Kelola data mahasiswa, ID Fingerprint, filter per angkatan/kelas, import Excel, dan fitur reset password.
+- **Dosen**: Kelola data dosen, NIP, ID Biometrik, gelar, dan import Excel.
+- **Mata Kuliah & Departemen**: Manajemen kurikulum dan departemen/bagian.
+- **Ruang Kuliah**: Manajemen kapasitas dan alokasi mesin absensi per ruangan.
 
-## Agentic Development
+### 5. 📊 Laporan & Rekapitulasi Kehadiran
+- **Laporan Harian**: Rekapitulasi absensi harian per sesi mata kuliah dan ruangan.
+- **Laporan Mahasiswa**: Rekap persentase kehadiran mahasiswa sebagai syarat ujian.
+- **Laporan Dosen**: Rekap jam mengajar dosen untuk keperluan beban kerja dosen (BKD) & honorarium.
+- **Export & Cetak**: Cetak langsung ke format print dokumen rapi atau ekspor ke **Microsoft Excel (.xlsx)**.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 6. 🎨 Kustomisasi Institusi & Branding Fleksibel
+- Pengaturan nama institusi, fakultas, logo, running text, dan kontak.
+- Pemilihan tema warna sistem yang dapat disesuaikan:
+  - 🔴 *Unhas Red* (Default)
+  - 🔵 *Royal Blue*
+  - 🟢 *Emerald Green*
+  - 🟣 *Violet Purple*
+  - 🟠 *Amber Orange*
+  - 🎨 *Custom Hex Color*
 
+---
+
+## 🛠️ Persyaratan Sistem
+
+- **PHP**: >= 8.2 (Disarankan PHP 8.3+)
+- **Composer**: >= 2.x
+- **Node.js**: >= 18.x & NPM
+- **Database**: MySQL 8.x / MariaDB 10.4+ / PostgreSQL / SQLite
+- **Ekstensi PHP**: `pdo`, `mbstring`, `openssl`, `sockets` (diperlukan untuk komunikasi socket ZKTeco), `gd` / `imagick`, `fileinfo`, `curl`
+
+---
+
+## 🚀 Panduan Instalasi
+
+### 1. Clone Repository
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone https://github.com/muhawaluddin/attendance-fk.git
+cd attendance-fk
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Instal Dependensi Backend & Frontend
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Konfigurasi Environment (`.env`)
+Salin file `.env.example` ke `.env`:
+```bash
+cp .env.example .env
+```
+Buka file `.env` dan sesuaikan konfigurasi database Anda:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=absensi_fk
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Generate Application Key
+```bash
+php artisan key:generate
+```
 
-## Code of Conduct
+### 5. Jalankan Migrasi & Database Seeder
+Jalankan migrasi tabel beserta data awal (master data demo, akun admin, dan jadwal):
+```bash
+php artisan migrate --seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Build Aset Frontend
+```bash
+# Untuk mode pengembangan:
+npm run dev
 
-## Security Vulnerabilities
+# Atau build untuk production:
+npm run build
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 7. Jalankan Server Lokal
+```bash
+php artisan serve
+```
+Akses aplikasi melalui browser di: `http://localhost:8000`
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🔑 Akun Default (Hasil Seeder)
+
+Setelah menjalankan `php artisan db:seed`, Anda dapat masuk menggunakan akun default berikut:
+
+| Level | Username | Password | Keterangan |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin` | `password` | Administrator Penuh Sistem |
+| **Operator** | `ict` | `password` | Operator / Tim ICT |
+
+> ⚠️ **PENTING**: Segera ganti password default setelah instalasi pada lingkungan produksi melalui menu **Profil** atau **Manajemen Akun**.
+
+---
+
+## 📡 Endpoint Integrasi Biometrik
+
+Aplikasi menyediakan endpoint tanpa CSRF untuk komunikasi mesin fingerprint:
+
+| Metode | Endpoint | Keterangan |
+| :--- | :--- | :--- |
+| `POST` | `/api/fingerprint/push` | Webhook umum untuk push log absensi JSON |
+| `POST` | `/api/fingerprint/deli` | Webhook khusus format log perangkat Deli |
+| `GET / POST` | `/iclock/cdata` | Endpoint kompatibel ADMS / Push SDK ZKTeco |
+| `GET` | `/monitoring` | Tampilan publik TV display jadwal & ruang kuliah |
+
+---
+
+## 📂 Struktur Direktori Utama
+
+```
+├── app/
+│   ├── Http/Controllers/     # Controller (Mesin, Jadwal, Laporan, Monitoring, dll)
+│   ├── Imports/              # Import Excel Mahasiswa & Dosen
+│   ├── Models/               # Model Eloquent (AttLog, Jadwal, Mesin, Pengaturan, dll)
+│   └── Services/             # Service helper (LogoProcessor, dll)
+├── database/
+│   ├── migrations/           # Skema database
+│   └── seeders/              # Data awal institusi, akun, dan jadwal
+├── resources/
+│   └── views/                # Tampilan antarmuka Blade & Tailwind
+├── routes/
+│   └── web.php               # Rute aplikasi dan endpoint webhook
+└── tests/                    # Pengujian otomatis Feature & Unit
+```
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dirilis di bawah lisensi [MIT License](LICENSE).
